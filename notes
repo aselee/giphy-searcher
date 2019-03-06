@@ -1,0 +1,14 @@
+Our App component renders our SearchBar component with a prop of onTermChange, 
+passing in its own handleTermChange method as an argument
+Our SearchBar calls its constructor() method upon initialization. 
+It creates a new state object and sets the term propery to an empty string.
+The user enters some text in the input field
+Every time the user enters/deletes a character, 
+React calls the onChange method on the input, 
+automatically passing in an event object as an argument. 
+Within its callback, we call our SearchBar class's onInputChange class method, 
+passing through the event object.
+The SearchBar's onInputChange method calls this.setState to update the 
+state's term property. It also calls the App component's handleTermChange method, 
+which is passed through the onTermChange prop.
+Our App logs the search term to the console via the handleTermChange method

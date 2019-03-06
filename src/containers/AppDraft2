@@ -1,0 +1,34 @@
+// these are the changes after AppDraft
+
+import React from 'react';
+import GifsTemp from '../components/GifsTemp';
+
+// importing the connect property from react-redux,
+// connect is needed when to link React and Redux (two separate libraries)
+// the react-redux package will pull from the Redux's state and React as props.
+import { connect } from 'react-redux';
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <GifsTemp gifs={this.props.gifs} />
+      </div>
+    );
+  }
+}
+
+// mapStateToProps functions allows the App component
+// to subscribe to the Redux store update; 
+// whenever there are changes in the store.
+
+// linking mapStateToProps function with reducers.
+// linking the gifs from GifsReducer to this.props.gifs
+// in the App component.
+function mapStateToProps(state) {
+  return {
+    gifs: state.gifs
+  };
+}
+
+export default connect(mapStateToProps)(App);
